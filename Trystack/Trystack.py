@@ -1,5 +1,10 @@
+from json import load as json_load
 from flask import Flask
+from .config import config
 
-def create_app():
+def create_app(config_file=None):
     app = Flask(__name__)
+    app.config.from_object(config) # Consume config file to app
+    if config_file is not None :
+        app.config.from_file(config_file , load=json_load)
     return app
