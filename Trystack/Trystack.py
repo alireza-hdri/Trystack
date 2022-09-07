@@ -12,5 +12,5 @@ def create_app(config_file=None):
     app.config.from_object(config) # Consume config file to app
     if config_file is not None :
         app.config.from_file(config_file , load=json_load)
-        app.register_blueprint(apiv1_bp) # rRegister /api/v1 blueprint to application.
+        app.register_blueprint(apiv1_bp) # Register /api/v1 blueprint to application.
     return app
